@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vendor Signup | Harvest Fair 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="vendor">
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="section">
+        <h1>Reserve a booth</h1>
+        <p class="lede">
+          Fair date: Saturday, Sept. 12, 2026, 10 a.m.–4 p.m. Please plan to
+          arrive early for set-up. Complete the form fully so we can place you well.
+        </p>
+
+        <div class="grid-2">
+          <div class="callout">
+            <strong>Option A — Print &amp; mail</strong>
+            <p>
+              Download the reservation PDF, fill it out, and mail it with a check
+              payable to the White River Valley Players.
+            </p>
+            <a class="btn" href="assets/reservation_form.pdf" download>Download reservation PDF</a>
+          </div>
+          <div class="panel">
+            <strong>Option B — Register online</strong>
+            <p>
+              Use the form below. After you submit, you’ll see a confirmation
+              page. Online card payment can be added in a later iteration.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight section-foot">
+        <h2>Online reservation</h2>
+        <form class="form" name="vendor-registration" method="POST" action="confirmation.html?type=vendor" netlify netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="vendor-registration" />
+          <p class="sr-only">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <label class="field">Organization (or participant) name
+            <input type="text" name="organization" required />
+          </label>
+          <div class="field-row">
+            <label class="field">Contact person
+              <input type="text" name="contact" required />
+            </label>
+            <label class="field">Phone
+              <input type="tel" name="phone" required />
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">Address
+              <input type="text" name="address" required />
+            </label>
+            <label class="field">E-mail
+              <input type="email" name="email" required />
+            </label>
+          </div>
+          <label class="field">Booth or activity (describe)
+            <textarea name="booth" required></textarea>
+          </label>
+          <div class="field-row">
+            <label class="field">Staffing hours — start
+              <input type="time" name="hours_start" />
+            </label>
+            <label class="field">Staffing hours — end
+              <input type="time" name="hours_end" />
+            </label>
+          </div>
+          <label class="field">Planning to demonstrate? (describe)
+            <textarea name="demonstration"></textarea>
+          </label>
+          <div class="field-row">
+            <label class="field">Booth size (min 10×16 ft)
+              <select name="booth_size" required>
+                <option value="single">Single</option>
+                <option value="double">Double (2× fee)</option>
+              </select>
+            </label>
+            <label class="field">Location preference
+              <input type="text" name="location_preference" />
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">Electricity needed
+              <select name="electricity">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </label>
+            <label class="field">Appliances &amp; wattage
+              <input type="text" name="wattage" />
+            </label>
+          </div>
+          <label class="field">Special needs
+            <input type="text" name="special_needs" />
+          </label>
+          <label class="field">If selling food — exact items (helps us avoid duplication)
+            <textarea name="food_items"></textarea>
+          </label>
+
+          <h3>Category &amp; fee</h3>
+          <table class="fee-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Before 8/31</th>
+                <th>After 8/31</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nonprofit — not selling</td>
+                <td>Free</td>
+                <td>$10</td>
+              </tr>
+              <tr>
+                <td>Nonprofit — selling</td>
+                <td>$15</td>
+                <td>$25</td>
+              </tr>
+              <tr>
+                <td>For-profit — demonstrating</td>
+                <td>$15</td>
+                <td>$25</td>
+              </tr>
+              <tr>
+                <td>For-profit — not demonstrating</td>
+                <td>$25</td>
+                <td>$35</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <label class="field">Select your category
+            <select name="category" required>
+              <option value="nonprofit-not-selling">Nonprofit — not selling</option>
+              <option value="nonprofit-selling">Nonprofit — selling</option>
+              <option value="profit-demo">For-profit — demonstrating craft</option>
+              <option value="profit-no-demo">For-profit — not demonstrating</option>
+            </select>
+          </label>
+          <label class="field">Payment timing
+            <select name="payment_timing" required>
+              <option value="before-831">Paid before Aug 31</option>
+              <option value="after-831">Paid after Aug 31</option>
+            </select>
+          </label>
+
+          <div class="payment-note">
+            <strong>Payment</strong>
+            <p style="margin: 0.4rem 0 0">
+              Mail-in: checks payable to White River Valley Players.
+              Online card / Venmo checkout will be wired in a later pass — for
+              now, submit the form and the producer will confirm payment details.
+            </p>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" type="submit">Submit reservation</button>
+            <a class="btn btn-ghost" href="assets/reservation_form.pdf">Download PDF instead</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/forms.js"></script>
+  </body>
+</html>

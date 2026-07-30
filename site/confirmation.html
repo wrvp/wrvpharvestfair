@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thank You | Harvest Fair 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="confirm">
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="confirm">
+        <div class="confirm-mark" aria-hidden="true">✓</div>
+        <h1>Thank you</h1>
+        <p class="lede" style="margin-inline: auto">
+          We received your <strong id="confirm-kind">registration</strong>.
+          The Harvest Fair producer will follow up if anything else is needed
+          for your booth or shift.
+        </p>
+
+        <div class="next-steps">
+          <strong>Next steps</strong>
+          <ul>
+            <li>Vendor check-in: 8–9:30 a.m. on fair day</li>
+            <li>Fair open to the public: 10 a.m.–4 p.m.</li>
+            <li>Questions? Call or text Christine at 802-734-8534</li>
+          </ul>
+        </div>
+
+        <div class="btn-row" style="justify-content: center">
+          <a class="btn btn-primary" href="https://wrvp.org/donate" target="_blank" rel="noopener">Donate to WRVP</a>
+          <a class="btn" href="index.html">Back to Home</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      const type = new URLSearchParams(location.search).get("type");
+      const el = document.getElementById("confirm-kind");
+      if (type === "volunteer") el.textContent = "volunteer signup";
+      else if (type === "contact") el.textContent = "message";
+      else el.textContent = "vendor reservation";
+    </script>
+  </body>
+</html>

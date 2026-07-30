@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wireframe — News Links | Harvest Fair 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="news">
+    <div class="wf-chrome">
+      <div class="wf-meta">
+        <strong>Wireframe · News Links</strong>
+        <span>External links to past Harvest Fair coverage — URLs TBD from client</span>
+        <span class="screen-list" data-wf-screens></span>
+      </div>
+
+      <div class="wf-frame">
+        <header class="site-header" data-wf-nav></header>
+
+        <main>
+          <section class="section">
+            <h1>News from past Harvest Fairs</h1>
+            <p class="lede">Press and community coverage. Links open in a new tab.</p>
+
+            <div class="stack">
+              <a class="box solid" href="#" style="text-decoration: none">
+                <strong>[Year] — Article title placeholder</strong>
+                <p style="margin: 4px 0 0; color: var(--muted)">Source name · external link →</p>
+              </a>
+              <a class="box solid" href="#" style="text-decoration: none">
+                <strong>[Year] — Article title placeholder</strong>
+                <p style="margin: 4px 0 0; color: var(--muted)">Source name · external link →</p>
+              </a>
+              <a class="box solid" href="#" style="text-decoration: none">
+                <strong>[Year] — Photo gallery / recap placeholder</strong>
+                <p style="margin: 4px 0 0; color: var(--muted)">Source name · external link →</p>
+              </a>
+            </div>
+            <p class="annot">Replace placeholders when client supplies URLs; empty state omitted in production if none provided</p>
+          </section>
+        </main>
+
+        <footer class="site-footer" data-wf-footer></footer>
+      </div>
+    </div>
+    <script src="_nav.js"></script>
+  </body>
+</html>

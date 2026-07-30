@@ -1,0 +1,39 @@
+The White River Valley Players Present 2026 Harvest Fair
+
+https://www.wrpvharvestfair.org
+
+
+
+User Requirements
+
+I want a new "Harvest Fair" page/tab added to the WRVP website, with these proposed sections:
+
+Intro blurb — a short history of the fair, a photo, an invitation to volunteer, and her contact info.
+Signup invitation — text inviting vendors to sign up for a booth, offering two options: print and mail the PDF form with a check, or sign up and reserve a spot online.
+Online form — either a link to the form or an embedded version, including a payment option (she's unsure if Venmo can be supported).
+Confirmation message — shown after the form and payment are submitted successfully.
+
+
+I need to create a community event website for a the Harvest Fair 2026 organized by the White River Valley Players (WRVP). The website will be hosted at https://www.wrpvharvestfair.org.
+
+
+
+Functional Requirements
+1. The website should allow users to Register as Vendors or Volunteers using an expandable navigation bar menu option
+2. When they go to the registration form, they should be able to download the pdf of the same form -- this pdf will be provided to you. So, they are able to either register electronically or download the form as pdf and submit it manually.
+3. The donate button should be in two places, the navigation bar and the page after registration submission. The donate button should redirect the user to the wrvp website's donation page found at: https://wrvp.org/donate
+4. The website should have a collection of harvest fair pictures slides that keep changing horizontally, and a large font announcement of the harvest fair. The brochure for this is provided in the images folder.
+5. The website should also have a contact us form where users can reach out
+6. The website should laso have News Links from past harvest fairs.
+
+
+Non-Functional Requirements
+1. The website should be hosted at a place that allows for receiving submitted form information on email as a pdf
+2. The contact us page should be attached to the same email address at which the submitted forms are received. The email is cameagher21@gmail.com
+3. The website should be hosted to a hosting server you'd recommend.
+
+1. Donate button
+2. Sign Up as Vendor or Volunteer
+3. FAQs
+4. News Links
+5. Contact Us

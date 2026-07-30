@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wireframe — Volunteer Register | Harvest Fair 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="volunteer">
+    <div class="wf-chrome">
+      <div class="wf-meta">
+        <strong>Wireframe · Sign Up as Volunteer</strong>
+        <span>Lighter form · same confirmation pattern</span>
+        <span class="screen-list" data-wf-screens></span>
+      </div>
+
+      <div class="wf-frame">
+        <header class="site-header" data-wf-nav></header>
+
+        <main>
+          <section class="section">
+            <h1>Volunteer at Harvest Fair</h1>
+            <p class="lede">
+              Help WRVP put on the 37th annual fair. Tell us how you’d like to
+              help and when you’re available on Saturday, Sept. 12.
+            </p>
+
+            <form class="wf-form" action="confirmation.html" method="get">
+              <input type="hidden" name="type" value="volunteer" />
+              <div class="field-row">
+                <label class="field">Full name
+                  <input type="text" name="name" />
+                </label>
+                <label class="field">Phone
+                  <input type="tel" name="phone" />
+                </label>
+              </div>
+              <label class="field">E-mail
+                <input type="email" name="email" />
+              </label>
+              <label class="field">Preferred roles (multi-select in build)
+                <select name="role" multiple size="5">
+                  <option>Setup / morning</option>
+                  <option>Gate / welcome</option>
+                  <option>Kids’ activities</option>
+                  <option>Vendor assist</option>
+                  <option>Teardown / afternoon</option>
+                </select>
+              </label>
+              <div class="field-row">
+                <label class="field">Available from
+                  <input type="time" name="from" value="08:00" />
+                </label>
+                <label class="field">Available until
+                  <input type="time" name="until" value="16:00" />
+                </label>
+              </div>
+              <label class="field">Volunteered at a past Harvest Fair?
+                <select name="past">
+                  <option>No</option>
+                  <option>Yes</option>
+                </select>
+              </label>
+              <label class="field">Notes / questions
+                <textarea name="notes"></textarea>
+              </label>
+              <div class="btn-row">
+                <button class="btn primary" type="submit">Submit volunteer signup</button>
+              </div>
+              <p class="annot">Success → confirmation (volunteer variant) + Donate CTA</p>
+            </form>
+          </section>
+        </main>
+
+        <footer class="site-footer" data-wf-footer></footer>
+      </div>
+    </div>
+    <script src="_nav.js"></script>
+  </body>
+</html>

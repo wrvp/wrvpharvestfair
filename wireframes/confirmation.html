@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wireframe — Confirmation | Harvest Fair 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="confirm">
+    <div class="wf-chrome">
+      <div class="wf-meta">
+        <strong>Wireframe · Post-submit confirmation</strong>
+        <span>Required: thank-you + Donate button (nav Donate also remains)</span>
+        <span class="screen-list" data-wf-screens></span>
+      </div>
+
+      <div class="wf-frame">
+        <header class="site-header" data-wf-nav></header>
+
+        <main>
+          <section class="section" style="max-width: 560px; text-align: center; padding-top: 48px">
+            <div class="placeholder-img" style="min-height: 80px; margin-bottom: 20px">
+              [success mark / simple line icon]
+            </div>
+            <h1>Thank you — you’re signed up</h1>
+            <p class="lede" style="margin-left: auto; margin-right: auto">
+              We received your <strong id="kind">registration</strong>. A copy
+              was emailed to the Harvest Fair producer. You’ll hear from us if
+              we need anything else about your booth or shift.
+            </p>
+
+            <div class="box solid" style="text-align: left; margin: 24px 0">
+              <strong>Next steps</strong>
+              <ul>
+                <li>Vendor check-in: 8–9:30 a.m. on fair day</li>
+                <li>Fair open to the public: 10 a.m.–4 p.m.</li>
+                <li>Questions? Call/text Christine at 802-734-8534</li>
+              </ul>
+            </div>
+
+            <div class="btn-row" style="justify-content: center">
+              <a class="btn primary" href="https://wrvp.org/donate" target="_blank" rel="noopener">Donate to WRVP</a>
+              <a class="btn" href="index.html">Back to Home</a>
+            </div>
+            <p class="annot">Donate must appear here in addition to the nav</p>
+          </section>
+        </main>
+
+        <footer class="site-footer" data-wf-footer></footer>
+      </div>
+    </div>
+    <script src="_nav.js"></script>
+    <script>
+      const params = new URLSearchParams(location.search);
+      if (params.get("type") === "volunteer") {
+        document.getElementById("kind").textContent = "volunteer signup";
+      } else {
+        document.getElementById("kind").textContent = "vendor reservation";
+      }
+    </script>
+  </body>
+</html>

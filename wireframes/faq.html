@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wireframe — FAQs | Harvest Fair 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="faq">
+    <div class="wf-chrome">
+      <div class="wf-meta">
+        <strong>Wireframe · FAQs</strong>
+        <span>Accordion pattern · content seeded from letter + form</span>
+        <span class="screen-list" data-wf-screens></span>
+      </div>
+
+      <div class="wf-frame">
+        <header class="site-header" data-wf-nav></header>
+
+        <main>
+          <section class="section">
+            <h1>Frequently asked questions</h1>
+            <p class="lede">One purpose: answer common vendor and visitor questions before Contact Us.</p>
+
+            <div class="stack">
+              <details class="box solid" open>
+                <summary><strong>When and where is the fair?</strong></summary>
+                <p>Saturday, Sept. 12, 2026, 10 a.m.–4 p.m. on Rochester Park. Suggested donation $2; kids free.</p>
+              </details>
+              <details class="box solid">
+                <summary><strong>What time do vendors check in?</strong></summary>
+                <p>Between 8 and 9:30 a.m. Checkout is 4 p.m. Plan to arrive early for set-up.</p>
+              </details>
+              <details class="box solid">
+                <summary><strong>How do I reserve a booth?</strong></summary>
+                <p>Register online or download the PDF, mail it with a check to Christine Masaba-Meagher, Harvest Fair, 466 S. Main St., Rochester, VT 05767.</p>
+              </details>
+              <details class="box solid">
+                <summary><strong>What are the booth fees?</strong></summary>
+                <p>Fees depend on nonprofit vs for-profit and whether you demonstrate or sell — see the fee table on the vendor signup page. Early rates apply if paid before Aug 31.</p>
+              </details>
+              <details class="box solid">
+                <summary><strong>How big are the booths?</strong></summary>
+                <p>Booths are at least 10×16 ft. Double booths are available at 2× the fee.</p>
+              </details>
+              <details class="box solid">
+                <summary><strong>Can I get electricity?</strong></summary>
+                <p>Request it on the form and list appliances and wattage. Availability may be limited.</p>
+              </details>
+              <details class="box solid">
+                <summary><strong>I’m selling food — any guidelines?</strong></summary>
+                <p>Tell us exactly what you plan to sell to avoid duplication. It’s suggested you have a drink available with food.</p>
+              </details>
+              <details class="box solid">
+                <summary><strong>How do I volunteer or donate?</strong></summary>
+                <p>Use Sign Up → As Volunteer, or Donate in the nav (opens wrvp.org/donate).</p>
+              </details>
+            </div>
+            <p class="annot">Final build: native &lt;details&gt; or custom accordion; keep one open max optional</p>
+          </section>
+        </main>
+
+        <footer class="site-footer" data-wf-footer></footer>
+      </div>
+    </div>
+    <script src="_nav.js"></script>
+  </body>
+</html>

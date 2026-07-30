@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wireframe — Contact Us | Harvest Fair 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="contact">
+    <div class="wf-chrome">
+      <div class="wf-meta">
+        <strong>Wireframe · Contact Us</strong>
+        <span>Same inbox as registration PDF emails</span>
+        <span class="screen-list" data-wf-screens></span>
+      </div>
+
+      <div class="wf-frame">
+        <header class="site-header" data-wf-nav></header>
+
+        <main>
+          <section class="section">
+            <h1>Contact us</h1>
+            <p class="lede">
+              Questions about booths, volunteering, or the fair day? Send a
+              message or reach Christine directly.
+            </p>
+
+            <div class="grid-2">
+              <form class="wf-form" action="confirmation.html" method="get">
+                <input type="hidden" name="type" value="contact" />
+                <label class="field">Name
+                  <input type="text" name="name" />
+                </label>
+                <label class="field">E-mail
+                  <input type="email" name="email" />
+                </label>
+                <label class="field">Subject
+                  <input type="text" name="subject" />
+                </label>
+                <label class="field">Message
+                  <textarea name="message" style="min-height: 140px"></textarea>
+                </label>
+                <div class="btn-row">
+                  <button class="btn primary" type="submit">Send message</button>
+                </div>
+                <p class="annot">Honeypot + rate limit in production · optional dedicated “message sent” state</p>
+              </form>
+
+              <div class="stack">
+                <div class="box solid">
+                  <strong>Christine Masaba-Meagher</strong>
+                  <p>Harvest Fair Producer</p>
+                  <p>802-734-8534 (call or text)</p>
+                  <p>[producer email — confirm]</p>
+                  <p>466 S. Main St.<br />Rochester, VT 05767</p>
+                </div>
+                <div class="box">
+                  <strong>Prefer to donate?</strong>
+                  <p>Financial gifts go through the WRVP donate page.</p>
+                  <a class="btn" href="https://wrvp.org/donate" target="_blank" rel="noopener">Donate</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer class="site-footer" data-wf-footer></footer>
+      </div>
+    </div>
+    <script src="_nav.js"></script>
+  </body>
+</html>

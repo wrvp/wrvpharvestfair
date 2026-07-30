@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wireframe — Home | Harvest Fair 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home">
+    <div class="wf-chrome">
+      <div class="wf-meta">
+        <strong>Wireframe · Home</strong>
+        <span>First viewport = brand + one headline + support + CTAs + dominant visual</span>
+        <span class="screen-list" data-wf-screens></span>
+      </div>
+
+      <div class="wf-frame">
+        <header class="site-header" data-wf-nav></header>
+
+        <main>
+          <section class="hero" aria-label="Hero">
+            <div class="hero-visual">
+              <div class="placeholder-img">
+                [FULL-BLEED HERO]<br />
+                Poster / past-fair photo slideshow<br />
+                (horizontal rotate)
+              </div>
+              <div class="carousel-dots">
+                <span class="dot on"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                ← → autoplay + swipe
+              </div>
+            </div>
+            <div class="hero-copy">
+              <p class="eyebrow">White River Valley Players present</p>
+              <h1>37th Annual<br />Harvest Fair</h1>
+              <p class="hero-meta">Saturday, Sept. 12, 2026 · 10 a.m.–4 p.m.<br />Rochester Park</p>
+              <p class="hero-support">
+                Live entertainment, crafts, food, kids’ activities, flower show,
+                and donations for the food shelf.
+              </p>
+              <div class="btn-row">
+                <a class="btn primary" href="register-vendor.html">Sign Up as Vendor</a>
+                <a class="btn" href="register-volunteer.html">Volunteer</a>
+                <a class="btn ghost" href="https://wrvp.org/donate" target="_blank" rel="noopener">Donate</a>
+              </div>
+              <p class="annot">No cards, badges, or schedule blocks in this viewport</p>
+            </div>
+          </section>
+
+          <p class="mobile-note">
+            Mobile: stack visual above copy; Sign Up becomes accordion in the nav drawer.
+          </p>
+
+          <section class="section">
+            <h2>What you’ll find</h2>
+            <p class="lede">Below-fold activity overview (one job: preview the day).</p>
+            <div class="grid-3">
+              <div class="box">Live entertainment all day</div>
+              <div class="box">Crafts & demos</div>
+              <div class="box">Food vendors</div>
+              <div class="box">Kids’ activities</div>
+              <div class="box">Flower show</div>
+              <div class="box">Food shelf donations</div>
+            </div>
+            <p class="annot">Simple list or icon-free text blocks — not a card grid in final UI unless interactive</p>
+          </section>
+
+          <section class="section">
+            <h2>Join the fair</h2>
+            <p class="lede">Secondary CTA band pointing to registration paths.</p>
+            <div class="grid-2">
+              <div class="box solid">
+                <strong>Vendors & organizations</strong>
+                <p>Reserve a booth online or mail the PDF with a check. Early rate through Aug 31.</p>
+                <a class="btn" href="register-vendor.html">Vendor signup →</a>
+              </div>
+              <div class="box solid">
+                <strong>Volunteers</strong>
+                <p>Help make the 37th fair happen — setup, gates, activities, teardown.</p>
+                <a class="btn" href="register-volunteer.html">Volunteer signup →</a>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer class="site-footer" data-wf-footer></footer>
+      </div>
+    </div>
+    <script src="_nav.js"></script>
+  </body>
+</html>
