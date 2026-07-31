@@ -1,14 +1,18 @@
-/** Local-friendly form submit: always land on confirmation page. */
+/** Local-only form shim; on Netlify, let the platform handle POST + email. */
 (function () {
-  document.querySelectorAll("form[action*='confirmation.html']").forEach((form) => {
+  const host = window.location.hostname;
+  const onNetlify =
+    host.endsWith("netlify.app") ||
+    host.includes("harvestfair") ||
+    host.includes("wrvp");
+
+  if (onNetlify) return;
+
+  document.querySelectorAll("form[action*='confirmation']").forEach((form) => {
     form.addEventListener("submit", (event) => {
-      // When not on Netlify, avoid opaque POST failures on file:// or static hosts
-      const host = window.location.hostname;
-      const onNetlify = host.includes("netlify.app") || host.includes("wrvp") || host.includes("harvestfair");
-      if (!onNetlify) {
-        event.preventDefault();
-        window.location.href = form.getAttribute("action") || "confirmation.html";
-      }
+      event.preventDefault();
+      const action = form.getAttribute("action") || "/confirmation.html";
+      window.location.href = action.replace(/^\//, "");
     });
   });
 })();

@@ -44,8 +44,9 @@
 
       <section class="section section-tight section-foot">
         <h2>Online reservation</h2>
-        <form class="form" name="vendor-registration" method="POST" action="confirmation.html?type=vendor" netlify netlify-honeypot="bot-field">
+        <form class="form" name="vendor-registration" method="POST" action="/confirmation.html?type=vendor" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="vendor-registration" />
+          <input type="hidden" name="subject" value="Harvest Fair vendor reservation" />
           <p class="sr-only">
             <label>Don’t fill this out: <input name="bot-field" /></label>
           </p>

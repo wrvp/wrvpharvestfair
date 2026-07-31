@@ -23,8 +23,9 @@
           and when you’re available on Saturday, Sept. 12.
         </p>
 
-        <form class="form" name="volunteer-registration" method="POST" action="confirmation.html?type=volunteer" netlify netlify-honeypot="bot-field">
+        <form class="form" name="volunteer-registration" method="POST" action="/confirmation.html?type=volunteer" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="volunteer-registration" />
+          <input type="hidden" name="subject" value="Harvest Fair volunteer signup" />
           <p class="sr-only">
             <label>Don’t fill this out: <input name="bot-field" /></label>
           </p>
