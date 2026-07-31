@@ -38,7 +38,7 @@
   if (foot) {
     foot.innerHTML = `
       <span>Wireframe · Not final design · Rochester Park · Sat Sept 12, 2026</span>
-      <span>Suggested donation $5 · Kids free</span>
+      <span>Suggested donation $2 · Kids free</span>
     `;
   }
 
