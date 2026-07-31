@@ -8,3 +8,6 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Redeploy trigger: ensure Netlify form detection re-parses HTML forms
+
