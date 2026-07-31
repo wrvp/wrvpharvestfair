@@ -393,6 +393,7 @@ main {
   background-color: #f5f1e8;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .hero-visual::after {
