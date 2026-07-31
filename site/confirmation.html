@@ -20,9 +20,8 @@
         <div class="confirm-mark" aria-hidden="true">✓</div>
         <h1>Thank you</h1>
         <p class="lede" style="margin-inline: auto">
-          We received your <strong id="confirm-kind">registration</strong>.
-          The Harvest Fair producer will follow up if anything else is needed
-          for your booth or shift.
+          We received your submission. The Harvest Fair producer will follow up
+          if anything else is needed.
         </p>
 
         <div class="next-steps">
@@ -44,12 +43,5 @@
     <footer class="site-footer" data-site-footer></footer>
     <script src="js/nav.js"></script>
     <script src="js/main.js"></script>
-    <script>
-      const type = new URLSearchParams(location.search).get("type");
-      const el = document.getElementById("confirm-kind");
-      if (type === "volunteer") el.textContent = "volunteer signup";
-      else if (type === "contact") el.textContent = "message";
-      else el.textContent = "vendor reservation";
-    </script>
   </body>
 </html>

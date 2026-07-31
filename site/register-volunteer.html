@@ -22,10 +22,12 @@
           Help WRVP put on the 37th annual fair. Tell us how you’d like to help
           and when you’re available on Saturday, Sept. 12.
         </p>
+        <a class="sr-only" href="/confirmation.html">Confirmation page</a>
 
-        <form class="form" name="volunteer-registration" method="POST" action="/confirmation.html?type=volunteer" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="form" name="volunteer-registration" method="POST" action="/confirmation.html" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="volunteer-registration" />
           <input type="hidden" name="subject" value="Harvest Fair volunteer signup" />
+          <input type="hidden" name="submission_type" value="volunteer" />
           <p class="sr-only">
             <label>Don’t fill this out: <input name="bot-field" /></label>
           </p>
