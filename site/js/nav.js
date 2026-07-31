@@ -44,7 +44,7 @@
           Sat Sept 12, 2026 · 10 a.m.–4 p.m. · Rochester Park
         </div>
         <div>
-          Suggested donation $2 · Kids free<br />
+          Suggested donation $5 · Kids free<br />
           <a href="https://wrvp.org" target="_blank" rel="noopener">wrvp.org</a>
           ·
           <a href="contact.html">Contact</a>
