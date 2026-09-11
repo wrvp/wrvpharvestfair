@@ -48,6 +48,10 @@
       return `Contact — ${topic} — ${who}${email ? ` <${email}>` : ""}`;
     }
 
+    if (formName === "photo-competition") {
+      return `Photo competition — ${who}${email ? ` <${email}>` : ""}`;
+    }
+
     return `Harvest Fair form — ${who}${email ? ` <${email}>` : ""}`;
   }
 

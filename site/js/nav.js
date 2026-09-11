@@ -27,7 +27,7 @@
             </div>
           </details>
           ${navLink("faq.html", "FAQs", "faq")}
-          ${navLink("news.html", "News", "news")}
+          ${navLink("photo-competition.html", "Photo Competition", "photos")}
           ${navLink("contact.html", "Contact", "contact")}
           <a class="nav-donate" href="https://wrvp.org/donate" target="_blank" rel="noopener">Donate</a>
         </nav>

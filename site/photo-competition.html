@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Photo Competition | Harvest Fair 2026</title>
+    <meta
+      name="description"
+      content="Enter the WRVP Harvest Fair photo competition. Submit 1–3 photos by September 20."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="photos">
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="section section-foot">
+        <h1>Photo Competition</h1>
+        <div class="lede photo-intro">
+          <p>We’re excited to see what you loved about this year’s Harvest Fair!</p>
+          <p>
+            To participate in this year’s photo competition, please submit 1–3
+            photos taken at the Harvest Fair. We’d love to see photos that
+            capture fair activities, the fair setup, and people enjoying and
+            participating in the festivities. From close-ups to wide-angle
+            shots, we want to see it all!
+          </p>
+          <p>Ready to enter? Upload your photos using the form below.</p>
+          <p>
+            The competition will close September 20th and the winner will be
+            announced October 1st. Please note that photos submitted to the
+            competition may be used to promote future WRVP Harvest Fairs. Any
+            information you provide (name, phone number, and email address) will
+            only be used to contact the competition winner.
+          </p>
+        </div>
+
+        <a class="sr-only" href="/confirmation.html">Confirmation page</a>
+
+        <h2>Submit your photos</h2>
+        <p class="lede">
+          JPEG only · 1 to 3 photos · optional caption per photo. Files are
+          labeled with your name (for example,
+          <code>ChristineMeagher_1.jpg</code>).
+        </p>
+
+        <form
+          class="form photo-form"
+          name="photo-competition"
+          method="POST"
+          action="/confirmation.html"
+          enctype="multipart/form-data"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="photo-competition" />
+          <input type="hidden" name="subject" data-remove-prefix value="Harvest Fair photo competition entry" />
+          <input type="hidden" name="submission_type" value="photo-competition" />
+          <p class="sr-only">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <label class="field">Name
+            <input type="text" name="name" id="photo-name" required autocomplete="name" />
+          </label>
+          <div class="field-row">
+            <label class="field">Phone number
+              <input type="tel" name="phone" required autocomplete="tel" />
+            </label>
+            <label class="field">E-mail
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+          </div>
+
+          <div class="photo-slots">
+            <div class="photo-slot">
+              <label class="field">Photo 1 (required)
+                <input
+                  type="file"
+                  name="photo_1"
+                  id="photo_1"
+                  accept="image/jpeg,.jpg,.jpeg"
+                  required
+                />
+              </label>
+              <label class="field">Caption 1 (optional)
+                <input type="text" name="caption_1" maxlength="200" placeholder="What you loved about this moment" />
+              </label>
+            </div>
+            <div class="photo-slot">
+              <label class="field">Photo 2 (optional)
+                <input
+                  type="file"
+                  name="photo_2"
+                  id="photo_2"
+                  accept="image/jpeg,.jpg,.jpeg"
+                />
+              </label>
+              <label class="field">Caption 2 (optional)
+                <input type="text" name="caption_2" maxlength="200" />
+              </label>
+            </div>
+            <div class="photo-slot">
+              <label class="field">Photo 3 (optional)
+                <input
+                  type="file"
+                  name="photo_3"
+                  id="photo_3"
+                  accept="image/jpeg,.jpg,.jpeg"
+                />
+              </label>
+              <label class="field">Caption 3 (optional)
+                <input type="text" name="caption_3" maxlength="200" />
+              </label>
+            </div>
+          </div>
+
+          <p id="photo-form-status" class="photo-status" hidden></p>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" type="submit" id="photo-submit">Submit entry</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/photo-form.js"></script>
+  </body>
+</html>

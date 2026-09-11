@@ -716,6 +716,47 @@ main {
   font-weight: 600;
 }
 
+.photo-intro p {
+  margin-bottom: 0.85em;
+}
+
+.photo-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.photo-form {
+  max-width: 40rem;
+}
+
+.photo-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.photo-slot {
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.photo-status {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  color: var(--forest);
+  font-weight: 600;
+}
+
+.photo-status.is-error {
+  color: #8a2f1f;
+}
+
+.photo-form code {
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 0.1em 0.35em;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
