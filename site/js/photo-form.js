@@ -33,6 +33,26 @@
     return cleaned || "Entrant";
   }
 
+  function updateNamePreview() {
+    const preview = document.getElementById("photo-name-preview");
+    const nameInput = form.elements.namedItem("name");
+    if (!preview || !nameInput) return;
+    const person = sanitizeName(nameInput.value);
+    if (!String(nameInput.value || "").trim()) {
+      preview.hidden = true;
+      preview.textContent = "";
+      return;
+    }
+    preview.hidden = false;
+    preview.innerHTML = `Your uploads will be named <code>${person}_1.jpg</code>, <code>${person}_2.jpg</code>, <code>${person}_3.jpg</code> (only for photos you add).`;
+  }
+
+  const nameField = form.elements.namedItem("name");
+  if (nameField) {
+    nameField.addEventListener("input", updateNamePreview);
+    updateNamePreview();
+  }
+
   function isJpeg(file) {
     if (!file) return false;
     const type = (file.type || "").toLowerCase();
