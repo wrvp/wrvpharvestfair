@@ -716,16 +716,8 @@ main {
   font-weight: 600;
 }
 
-.photo-name-preview {
-  margin: -0.5rem 0 1rem;
-  font-size: 0.95rem;
-  color: var(--ink-soft);
-}
-
-.photo-name-preview code {
-  font-size: 0.9em;
-  background: var(--paper-deep);
-  padding: 0.1em 0.35em;
+.photo-intro p {
+  margin-bottom: 0.85em;
 }
 
 .photo-intro p:last-child {
