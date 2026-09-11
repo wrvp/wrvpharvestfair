@@ -44,13 +44,7 @@
         <a class="sr-only" href="/confirmation.html">Confirmation page</a>
 
         <h2>Submit your photos</h2>
-        <p class="lede">
-          JPEG only · 1 to 3 photos · optional caption per photo. Each file is
-          named from the Name you enter as
-          <code>FirstnameLastname_1.jpg</code>,
-          <code>FirstnameLastname_2.jpg</code>, and so on.
-        </p>
-        <p id="photo-name-preview" class="photo-name-preview" hidden></p>
+        <p class="lede">JPEG only · 1 to 3 photos.</p>
 
         <form
           class="form photo-form"
@@ -68,14 +62,14 @@
             <label>Don’t fill this out: <input name="bot-field" /></label>
           </p>
 
-          <label class="field">Name
+          <label class="field">Name (Required)
             <input type="text" name="name" id="photo-name" required autocomplete="name" />
           </label>
           <div class="field-row">
             <label class="field">Phone number
               <input type="tel" name="phone" required autocomplete="tel" />
             </label>
-            <label class="field">E-mail
+            <label class="field">E-mail (Required)
               <input type="email" name="email" required autocomplete="email" />
             </label>
           </div>
