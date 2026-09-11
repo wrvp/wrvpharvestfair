@@ -1,7 +1,7 @@
 /**
  * Photo competition form:
- * - JPEG only, 1–3 photos
- * - Rename files to Name_1.jpg, Name_2.jpg, …
+ * - Any image type, 1–3 photos
+ * - Rename files to Name_1.ext, Name_2.ext, … (extension preserved when possible)
  * - Keep quality high; only re-encode if the whole request would exceed Netlify’s ~8MB form limit
  */
 (function () {
@@ -33,11 +33,27 @@
     return cleaned || "Entrant";
   }
 
-  function isJpeg(file) {
+  function isImage(file) {
     if (!file) return false;
     const type = (file.type || "").toLowerCase();
-    const name = (file.name || "").toLowerCase();
-    return type === "image/jpeg" || type === "image/jpg" || /\.jpe?g$/.test(name);
+    if (type.startsWith("image/")) return true;
+    return /\.(jpe?g|png|gif|webp|heic|heif|tif|tiff|bmp|avif)$/i.test(file.name || "");
+  }
+
+  function extensionFor(file, forceJpeg) {
+    if (forceJpeg) return "jpg";
+    const fromName = (file.name || "").match(/\.([a-z0-9]+)$/i);
+    if (fromName) return fromName[1].toLowerCase().replace("jpeg", "jpg");
+    const type = (file.type || "").toLowerCase();
+    if (type === "image/jpeg" || type === "image/jpg") return "jpg";
+    if (type === "image/png") return "png";
+    if (type === "image/gif") return "gif";
+    if (type === "image/webp") return "webp";
+    if (type === "image/heic" || type === "image/heif") return "heic";
+    if (type === "image/tiff") return "tiff";
+    if (type === "image/bmp") return "bmp";
+    if (type === "image/avif") return "avif";
+    return "jpg";
   }
 
   function readAsImage(file) {
@@ -67,18 +83,27 @@
     canvas.width = width;
     canvas.height = height;
     const ctx = canvas.getContext("2d", { alpha: false });
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, width, height);
     ctx.drawImage(img, 0, 0, width, height);
 
     const blob = await new Promise((resolve) =>
       canvas.toBlob(resolve, "image/jpeg", quality)
     );
-    if (!blob) throw new Error("Could not encode JPEG");
+    if (!blob) throw new Error("Could not encode image");
     return blob;
   }
 
-  async function prepareFile(file, labeledName) {
-    if (file.size <= MAX_REQUEST_BYTES / 2 && file.size <= 5 * 1024 * 1024) {
-      return new File([file], labeledName, { type: "image/jpeg", lastModified: file.lastModified });
+  async function prepareFile(file, person, index) {
+    const smallEnough =
+      file.size <= MAX_REQUEST_BYTES / 2 && file.size <= 5 * 1024 * 1024;
+
+    if (smallEnough) {
+      const ext = extensionFor(file, false);
+      return new File([file], `${person}_${index}.${ext}`, {
+        type: file.type || "application/octet-stream",
+        lastModified: file.lastModified,
+      });
     }
 
     const attempts = [
@@ -95,7 +120,7 @@
       if (blob.size <= 4.5 * 1024 * 1024) break;
     }
 
-    return new File([best], labeledName, {
+    return new File([best], `${person}_${index}.jpg`, {
       type: "image/jpeg",
       lastModified: Date.now(),
     });
@@ -122,19 +147,18 @@
 
     const selected = slots.filter((slot) => slot.input?.files?.[0]);
     if (!selected.length) {
-      setStatus("Please upload at least one JPEG photo.", true);
+      setStatus("Please upload at least one photo.", true);
       return;
     }
 
     for (const slot of selected) {
       const file = slot.input.files[0];
-      if (!isJpeg(file)) {
-        setStatus("Photos must be JPEG (.jpg or .jpeg) only.", true);
+      if (!isImage(file)) {
+        setStatus("Please upload image files only.", true);
         return;
       }
     }
 
-    // Clear unused optional slots and captions tied to empty slots
     slots.forEach((slot) => {
       if (!slot.input?.files?.length) {
         assignFile(slot.input, null);
@@ -149,17 +173,16 @@
       const prepared = [];
       for (const slot of selected) {
         const original = slot.input.files[0];
-        const labeled = `${person}_${slot.n}.jpg`;
-        const file = await prepareFile(original, labeled);
+        const file = await prepareFile(original, person, slot.n);
         prepared.push({ slot, file });
       }
 
       let total = prepared.reduce((sum, item) => sum + item.file.size, 0);
       if (total > MAX_REQUEST_BYTES) {
-        // Second pass: stronger optimization to fit Netlify’s form size limit
         for (const item of prepared) {
           const blob = await encodeJpeg(item.file, 2200, 0.8);
-          item.file = new File([blob], item.file.name, {
+          const base = item.file.name.replace(/\.[^.]+$/, "");
+          item.file = new File([blob], `${base}.jpg`, {
             type: "image/jpeg",
             lastModified: Date.now(),
           });
@@ -169,7 +192,7 @@
 
       if (total > MAX_REQUEST_BYTES) {
         setStatus(
-          "Those photos are still too large to send together. Try 1–2 photos, or slightly smaller JPEGs.",
+          "Those photos are still too large to send together. Try 1–2 photos, or slightly smaller files.",
           true
         );
         submitBtn.disabled = false;
