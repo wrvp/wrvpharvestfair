@@ -1,6 +1,6 @@
 The White River Valley Players Present 2026 Harvest Fair
 
-https://www.wrpvharvestfair.org
+https://www.wrvpharvestfair.org
 
 
 
@@ -37,3 +37,33 @@ Non-Functional Requirements
 3. FAQs
 4. News Links
 5. Contact Us
+
+
+
+I need you to make the following changes to the website:
+
+1. Vendor Signup Page:
+
+Since the sign up period is done, we want this page to show the message below: 
+
+"Thank you very much for your interest in being a vendor for the 37th annual Harvest Fair. Unfortunately, vendor registration has closed at this time. We encourage you to come back and sign up for a booth next year - always the Saturday after Labor Day!
+
+There is still opportunity to participate as a volunteer in this year's Harvest Fair. Please reach out to wrvp.harvestfair@gmail.com if you have any interest in helping with set up or tear down before and after the event. 
+
+You should not delete the sign up page. Keep it for next year, but replace it with a new page that has the above information.
+
+
+
+2. Photo Competition
+Add a "Photo Competition" category in the nav bar: You should high the News Category page for now so that "Photo Competition" goes in its place.
+
+On that new Photo Competition page, there should be an introduction blurb (written below) and a super easy form that collects their Name, Phone Number and Email, and then allows for the upload of MAXIMUM 3 high resolution jpeg photos. You can also add an optional Caption option so that the users share their thought about the photo.  I would love to have high quality, so I don't necessarily want to put a limit on the size. Each uploaded photo should be labeled with the person's name followed by the photo number (e.g ChristineMeagher_1, ChristineMeagher_2, etc). This form should be submitted to wrvp.harvestfair@gmail.com. If the photos can't be shared directly as attachements on gmail, you can upload them somewhere and simply share a link where they can be downloaded directly without requiring authentication.
+
+This page should have the following introductoin information:
+"We’re excited to see what you loved about this year’s Harvest Fair!
+
+To participate in this year’s photo competition, please submit 1–3 photos taken at the Harvest Fair. We’d love to see photos that capture fair activities, the fair setup, and people enjoying and participating in the festivities. From close-ups to wide-angle shots, we want to see it all!
+
+Ready to enter? Upload your photos using the form below. 
+
+The competition will close September 20th and the winner will be announced October 1st. Please note that photos submitted to the competition may be used to promote future WRVP Harvest Fairs. Any information you provide (name, phone number, and email address) will only be used to contact the competition winner. "
