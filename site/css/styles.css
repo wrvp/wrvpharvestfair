@@ -728,6 +728,13 @@ main {
   margin-top: 3rem;
 }
 
+.date-highlight {
+  color: var(--forest);
+  font-weight: 700;
+  background: rgba(47, 79, 62, 0.12);
+  padding: 0.05em 0.25em;
+}
+
 .photo-form {
   max-width: 40rem;
 }
