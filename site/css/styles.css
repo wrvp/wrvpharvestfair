@@ -724,6 +724,10 @@ main {
   margin-bottom: 0;
 }
 
+.photo-submit-heading {
+  margin-top: 3rem;
+}
+
 .photo-form {
   max-width: 40rem;
 }
