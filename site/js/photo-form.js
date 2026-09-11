@@ -1,6 +1,6 @@
 /**
  * Photo competition form:
- * - Any image type, 1–3 photos
+ * - JPG/JPEG/PNG only, 1–3 photos
  * - Rename files to Name_1.ext, Name_2.ext, … (extension preserved when possible)
  * - Keep quality high; only re-encode if the whole request would exceed Netlify’s ~8MB form limit
  */
@@ -33,26 +33,26 @@
     return cleaned || "Entrant";
   }
 
-  function isImage(file) {
+  function isAllowedImage(file) {
     if (!file) return false;
     const type = (file.type || "").toLowerCase();
-    if (type.startsWith("image/")) return true;
-    return /\.(jpe?g|png|gif|webp|heic|heif|tif|tiff|bmp|avif)$/i.test(file.name || "");
+    const name = (file.name || "").toLowerCase();
+    if (type === "image/jpeg" || type === "image/jpg" || type === "image/png") {
+      return true;
+    }
+    return /\.(jpe?g|png)$/i.test(name);
   }
 
   function extensionFor(file, forceJpeg) {
     if (forceJpeg) return "jpg";
     const fromName = (file.name || "").match(/\.([a-z0-9]+)$/i);
-    if (fromName) return fromName[1].toLowerCase().replace("jpeg", "jpg");
+    if (fromName) {
+      const ext = fromName[1].toLowerCase();
+      if (ext === "jpeg") return "jpg";
+      if (ext === "jpg" || ext === "png") return ext;
+    }
     const type = (file.type || "").toLowerCase();
-    if (type === "image/jpeg" || type === "image/jpg") return "jpg";
     if (type === "image/png") return "png";
-    if (type === "image/gif") return "gif";
-    if (type === "image/webp") return "webp";
-    if (type === "image/heic" || type === "image/heif") return "heic";
-    if (type === "image/tiff") return "tiff";
-    if (type === "image/bmp") return "bmp";
-    if (type === "image/avif") return "avif";
     return "jpg";
   }
 
@@ -101,7 +101,7 @@
     if (smallEnough) {
       const ext = extensionFor(file, false);
       return new File([file], `${person}_${index}.${ext}`, {
-        type: file.type || "application/octet-stream",
+        type: file.type || (ext === "png" ? "image/png" : "image/jpeg"),
         lastModified: file.lastModified,
       });
     }
@@ -132,6 +132,25 @@
     input.files = transfer.files;
   }
 
+  function warnIfInvalid(input) {
+    const file = input.files?.[0];
+    if (!file) return;
+    if (!isAllowedImage(file)) {
+      assignFile(input, null);
+      setStatus(
+        "That file type isn’t allowed. Please upload a JPG, JPEG, or PNG photo.",
+        true
+      );
+      return;
+    }
+    setStatus("");
+  }
+
+  [1, 2, 3].forEach((n) => {
+    const input = form.elements.namedItem(`photo_${n}`);
+    if (input) input.addEventListener("change", () => warnIfInvalid(input));
+  });
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     setStatus("");
@@ -153,8 +172,11 @@
 
     for (const slot of selected) {
       const file = slot.input.files[0];
-      if (!isImage(file)) {
-        setStatus("Please upload image files only.", true);
+      if (!isAllowedImage(file)) {
+        setStatus(
+          "Photos must be JPG, JPEG, or PNG. Please choose a different file.",
+          true
+        );
         return;
       }
     }
